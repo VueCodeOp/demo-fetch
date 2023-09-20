@@ -16,15 +16,15 @@ export default {
   data() {
     return {
       weather: {},
+      apiKey: import.meta.env.VITE_apikey
     };
   },
   methods: {
     fetchData() {
       const urlBase = "https://api.openweathermap.org/data/2.5/weather";
-      const apiKey = "d756d4d102dbf89a57bf8f85d54314ae";
       let location = "barcelona"
-      const url = `${urlBase}?q=${location}&appid=${apiKey}&units=metric&lang=ES`;
-      
+      const url = `${urlBase}?q=${location}&appid=${this.apiKey}&units=metric&lang=ES`;
+      console.log(url);
       fetch(url)
         .then( (response) => {
           response.json()
